@@ -23,8 +23,8 @@ df3 = df2[['id', 'word', 'ji', 'bunim', 'exp', 'example', 'page']]
 
 df3['word'] = df3['word'].apply(lambda x: ThoKit().pojAscii2Unicode(x, standard='kjt'))
 df3['bunim'] = df3['bunim'].apply(lambda x: ThoKit().pojAscii2Unicode(x, standard='kjt'))
-df3['exp'] = df3['exp'].apply(lambda x: ThoKit().pojAscii2Unicode(x, standard='kjt').replace('\r\n', ' ').replace('  ', ' '))
-df3['example'] = df3['example'].apply(lambda x: ThoKit().pojAscii2Unicode(x, standard='kjt').replace('\r\n', ' ').replace('  ', ' '))
+df3['exp'] = df3['exp'].apply(lambda x: ThoKit().pojAscii2Unicode(ThoKit().pojUnicode2Ascii(x), standard='kjt').replace('\r\n', ' ').replace('  ', ' '))
+df3['example'] = df3['example'].apply(lambda x: ThoKit().pojAscii2Unicode(ThoKit().pojUnicode2Ascii(x), standard='kjt').replace('\r\n', ' ').replace('  ', ' '))
 df3['tailo'] = df3['word'].apply(lambda x: ThoKit().tailoUnicode2Ascii(ThoKit().pojUnicode2TailoUnicode(x.lower(), poj_standard='kjt')))
 
 df3 = df3[['id', 'word', 'ji', 'bunim', 'exp', 'example', 'tailo', 'page']]
@@ -46,18 +46,23 @@ df3 = df3.set_index('id')
 '''
 # df3.loc[37, 'comment'] = 'à-pà[=ah-pà], chiū-sī chiàu ka-kī ê ì-sù lām-sám tsòe.'
 # df3.loc[682, 'poj_bunim_unicode'] = 'Lek[Le̍k]'
+df3.loc[315, 'comment'] = 'bán-(=boán-) thian-kong, chiū-sī ū kúi-nā ki sòe-sim tūi-teh ê tông.'
+df3.loc[315, 'hanlo_comment'] = '滿天光, 就是 有 幾若 枝 細心 墜 teh ê 燈.'
+df3.loc[840, 'comment'] = 'ka(=kā)-boa̍h-chhài, chiū-sī chhiⁿ-chhài, á-sī chhài-thâu.'
 df3.loc[1247, 'comment'] = 'hù-sû ê ōe; sih-chheh[sih-cheh]=sih chi̍t-ē sio-siāng; kiu-cheh lun-cheh=kiaⁿ ê ì-sù.'
 df3.loc[1247, 'comment'] = '副詞 ê 話; sih-cheh=sih 一下 相像; 勼cheh, 縮cheh=驚 ê 意思.'
 df3.loc[1251, 'poj_bunim_unicode'] = 'Tsoa̍t'
 df3.loc[1730, 'comment'] = 'oa̍t-tńg, sóa-ūi; àm-chīⁿ, siu-khǹg, tè i kiâⁿ, kiâⁿ bōe chìn.'
+df3.loc[2122, 'comment'] = 'chúi[chiú]-tsóaⁿ, niû mi̍h ê khì-kū, tsū-chi̍p, siúⁿ-sù, tí-tng, tāng-tāng.'
 df3.loc[2624, 'comment'] = 'm̄-ti̍hⁿ ê chhù; pàng-sang; chhiong-móa; chio, tōa, bô-lō͘-ēng.'
 df3.loc[2992, 'hanlo_comment'] = '嗤chhn̍gh哮, 嗤chhn̍gh 叫, 就是 哮 ê 聲.'
 df3.loc[3127, 'hanlo_comment'] = '藥 ê 名, 親像 石菖pô͘ⁿ, 抑是 石菖婆.'
 df3.loc[3646, 'poj_unicode'] = 'Chhù'
 df3.loc[3646, 'tailo'] = 'tshu3'
-df3.loc[4143, 'comment'] = 'léng-gē sī léng-chhiò ê ì-sù; gē-tòaⁿ, gē-pîⁿ, tosng-gē[tsng-gē].'
+df3.loc[4143, 'comment'] = 'léng-gē sī léng-chhiò ê ì-sù; gē-tòaⁿ, gē-pîⁿ, tsng-gē[tosng-gē].'
 df3.loc[6552, 'ji'] = '㕼'
 df3.loc[6552, 'comment'] = 'chhut tōa-siaⁿ; oh-tit chiâⁿ kong-lô.' # 'kap téng-bīn jī sio-siāng.'
+df3.loc[7370, 'hanlo_comment'] = '依偎[因為], 有 所靠, 偏邊, 歪; 依oá, oá靠, oá重.'
 df3.loc[7438, 'ji'] = '圯[圮]'
 df3.loc[7438, 'poj_bunim_unicode'] = ''
 df3.loc[8524, 'comment'] = 'jiáuⁿ-súi, chiū-sī toh-piⁿ chhâ khek ê hoe; jiáuⁿ-súi-teng, chiū-sī thih-teng lâi tèng hit ê hoe.'
@@ -67,6 +72,8 @@ df3.loc[9349, 'poj_bunim_unicode'] = 'Kà[Ká]'
 df3.loc[9631, 'comment'] = 'ki-ki kê-kê, chiū-sī siông-siông khê-tio̍h ê ì-sù.'
 df3.loc[10696, 'ji'] = '綰'
 df3.loc[10901, 'comment'] = 'koat-tsoa̍t, chiū-sī tsoa̍t-tn̄g kap-lâng óng-lâi ê ì-sù.'
+df3.loc[10903, 'comment'] = 'khī-koe, hé-koe[hí-koe]; tsàu-koe; koe-bú, koe-kak, koe-mn̂g, koe-nn̄g.'
+df3.loc[10903, 'hanlo_comment'] = '雉雞, 火雞; 灶雞; 雞母, 雞角, 雞毛, 雞卵.'
 df3.loc[11067, 'comment'] = 'chho͘-ku̍t bē kè-hé ê tâng thih, chho͘-ku̍t ê kim-ge̍k, tâng, thih.'
 df3.loc[11067, 'hanlo_comment'] = '粗掘 未 過火 ê 銅 鐵, 粗掘 ê 金玉, 銅, 鐵.'
 df3.loc[11068, 'comment'] = 'chho͘-ku̍t bē kè-hé ê tâng thih, chho͘-ku̍t ê kim-ge̍k, tâng, thih.'
@@ -88,7 +95,6 @@ df3.loc[19812, 'comment'] = 'sihⁿ-si̍hⁿ sa̍uhⁿ-sa̍uhⁿ, sa̍uhⁿ-sa̍
 df3.loc[19812, 'tailo'] = 'suainnh4'
 df3.loc[21855, 'ji'] = '朵[呆]'
 df3.loc[21855, 'poj_bunim_unicode'] = ''
-# df3.loc[22967, 'comment'] = "koah-bah[boah] kàu kut; siah, tû-khì, thuh-khí, thak-thak, pó͘-thak, thek-kut."
 df3.loc[24243, 'poj_unicode'] = 'tsoàn'
 df3.loc[24243, 'tailo'] = 'tsuan3'
 df3.loc[24270, 'poj_unicode'] = 'Tsoat'
@@ -98,7 +104,7 @@ df3.loc[24780, 'poj_bunim_unicode'] = ''
 df3.loc[24785, 'ji'] = '盱[盰]'
 df3 = df3.drop(index=[25213, 25214, 25215])
 
-df3['comment'] = df3['comment'].apply(lambda x: re.sub('\[([\u4e00-\u9fff][^,]*)\]', '{\\1}', x))
-df3['hanlo_comment'] = df3['hanlo_comment'].apply(lambda x: re.sub('\[([\u4e00-\u9fff][^,]*)\]', '{\\1}', x))
+df3['comment'] = df3['comment'].apply(lambda x: re.sub('\[([\u4e00-\u9fff][^,\]]*)\]', '{\\1}', x))
+df3['hanlo_comment'] = df3['hanlo_comment'].apply(lambda x: re.sub('\[([\u4e00-\u9fff][^,\]]*)\]', '{\\1}', x))
 
 df3.to_csv('dict-new.csv')

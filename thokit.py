@@ -120,23 +120,41 @@ class ThoKit:
     def pojAscii2Unicode(self, s: str, standard:str = None,
                          output_style_list=[]):
         if standard: assert standard in ['kjt']
+        s = s.replace('ou', 'oo').replace('Ou', 'Oo').replace('OU', 'OO')
+        s = s.replace('hnn', 'nnh').replace('HNN', 'NNH')
+        s = re.sub('([aeiou])N', r'\1nn', s) # 此拼式全大寫 -nn 與 -n 有衝突
         if standard == 'kjt':
-            s = s.replace('ou', 'oo').replace('Ou', 'Oo').replace('OU', 'OO')
-            s = re.sub('([aeioug])N', r'\1nn', s) # 此拼式全大寫 -nn 與 -n 有衝突
+            '''
+            TL vs KJTPOJ
+            onn => o͘ⁿ
+            tsh => chh
+            ts([^ie]) => ts
+            ts([ie]) => ch
+            '''
             s = re.sub('([^o])onn', '\\1oonn', s)
-            s = re.sub('ch([^eéèêēiíìîīh])', r'ts\1', s)
-            s = re.sub('Ch([^eéèêēiíìîīh])', r'Ts\1', s)
-            s = re.sub('CH([^EÉÈÊĒIÍÌÎĪH])', r'TS\1', s)
-            s = re.sub('ts([eéèêēiíìîīh])', r'ch\1', s)
-            s = re.sub('Ts([eéèêēiíìîīh])', r'Ch\1', s)
-            s = re.sub('TS([EÉÈÊĒIÍÌÎĪH])', r'CH\1', s)
-            # .replace('N', 'nn')
-        # s = s.replace('ch', 'ts')
-        # s = s.replace('oa', 'ua').replace('oe', 'oe').replace('eng', 'ing').replace('ek', 'ik')
+            s = re.sub('([^o])Onn', '\\1Oonn', s)
+            s = re.sub('([^O])ONN', '\\1OONN', s)
+            s = re.sub('ch([^eih])', r'ts\1', s)
+            s = re.sub('Ch([^eīh])', r'Ts\1', s)
+            s = re.sub('CH([^EIH])', r'TS\1', s)
+            s = re.sub('ts([eih])', r'ch\1', s)
+            s = re.sub('Ts([eih])', r'Ch\1', s)
+            s = re.sub('TS([EIH])', r'CH\1', s)
+
         s = re.sub("([a-zA-Z]+\d)", lambda x: self.movePojToneNumber(x.group(0)), s)
 
-        s = re.sub("(o)([ae])(\d)([^a-z]|$)", r"\1\3\2\4", s, flags=re.IGNORECASE)
-        s = re.sub("(o)([ae])(\d)(nn)([^h]|$)", r"\1\3\2\4\5", s, flags=re.IGNORECASE)
+        if standard == 'kjt':
+            '''
+            ([a-z])o([ae])\d，標 o
+            ([a-z])o([ae])(nn)\d，標 o
+            ainnh8，標 i
+            '''
+            s = re.sub("([a-z])(o)([ae])(\d)([^a-z]|$)", r"\1\2\4\3\5", s, flags=re.IGNORECASE)
+            s = re.sub("([a-z])(o)([ae])(\d)(nn)([^h]|$)", r"\1\2\4\3\5\6", s, flags=re.IGNORECASE)
+            s = re.sub("(a)(8)(i)(nnh)", r"\1\3\2\4", s, flags=re.IGNORECASE)
+        else:
+            s = re.sub("(o)([ae])(\d)([^a-z]|$)", r"\1\3\2\4", s, flags=re.IGNORECASE)
+            s = re.sub("(o)([ae])(\d)(nn)([^h]|$)", r"\1\3\2\4\5", s, flags=re.IGNORECASE)
 
         s = re.sub(
             "([aeioumn])(\d)",
@@ -163,7 +181,7 @@ class ThoKit:
         if "nfd" not in output_style_list:
             s = unicodedata.normalize("NFC", s)
         if standard == 'kjt':
-            s = s.replace('ⁿh', 'hⁿ')
+            s = re.sub('(ⁿ)(h)', r'\2\1', s, flags=re.IGNORECASE)
         return s
     
     def pojUnicode2TailoUnicode(self, s: str, poj_standard=''):
