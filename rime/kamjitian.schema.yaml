@@ -1,0 +1,121 @@
+# Rime schema
+# encoding: UTF-8 w/o BOM
+
+schema:
+  schema_id: kamjitian
+  name: 廈門音新字典（甘字典）
+  version: "2025.3.5"
+  author:
+    - Enatsu <unsioer@outlook.com>
+  description: |
+    廈門音新字典（甘字典）
+    碼表取自信望愛提供、東苑實驗室校增的
+    甘為霖《廈門音新字典》(Kam Ûi-lîm ê "Ē-mn̄g Im ê Jī-tián")
+    (William Campbell, "A Dictionary of the Amoy Vernacular")
+  dependencies:
+    - luna_pinyin
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: half_shape
+    states: [ 全角, 半角 ]
+  - name: ascii_punct
+    states: [ ，。, ，． ]
+  - name: simplification
+    states: [ 漢字, 汉字 ]
+  - name: capital
+    states: [ sòe, TŌA ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+    - reverse_lookup_translator
+  filters:
+    - simplifier
+    - uniquifier
+    - simplifier@capital
+
+menu:
+  page_size: 8
+  
+speller:
+  alphabet: 'QWERTYUIOPASDFGHJKLZXCVBNMzyxwvutsrqponmlkjihgfedcba-'
+  initials: QWERTYUIOPASDFGHJKLZXCVBNMzyxwvutsrqponmlkjihgfedcba-
+  delimiter: " '"
+  algebra:
+    # 通配
+    - derive/ch/ts/
+    - derive/ts/ch/
+    - derive/oo/ou/
+    - derive/o([aei])/u$1/
+    - derive/e(ng|k)/i$1/
+    # 大寫改細寫，連字符 佮 聲調
+    - derive/([A-Z])/\L$1/
+    - derive/\-/y/
+    - derive/(\-)*//
+    - derive/([1-9])//
+    - xform/2/q/
+    - xform/3/w/
+    - xform/5/z/
+    - xform/6/x/
+    - xform/7/d/
+    - xform/8/d/
+    - xform/1/f/
+    - xform/4/f/
+    - xform/9/v/
+
+    
+translator:
+  dictionary: kamjitian
+  spelling_hints: 5
+  preedit_format:
+    # - xform/ou/o͘/
+    # - xform/oo/o͘/
+    # - xform/u([aei])/o$1/
+    # - xform/i(ng|k)/e$1/
+  comment_format: &comment_rules
+
+reverse_lookup:
+  dictionary: luna_pinyin
+  prefix: "`"
+  suffix: "'"
+  tips: 〔漢語拼音〕
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+  comment_format: *comment_rules
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    reverse_lookup: "`[a-z]*'?$"
+
+capital:
+  opencc_config: l2u.json
+  option_name: capital
+  tips: all

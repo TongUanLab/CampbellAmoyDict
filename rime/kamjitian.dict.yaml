@@ -1,0 +1,19 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# KamJiTian -- POJ
+#
+# 廈門音新字典（甘字典）
+#
+# 碼表取自信望愛提供、東苑實驗室校增的
+# 甘為霖《廈門音新字典》(Kam Ûi-lîm ê "Ē-mn̄g Im ê Jī-tián")
+# (William Campbell, "A Dictionary of the Amoy Vernacular")
+---
+name: kamjitian.poj
+version: "2025.3.5"
+sort: by_weight
+use_preset_vocabulary: false
+import_tables:
+  - kamjitian.poj
+  - kamjitian.hanji
+...

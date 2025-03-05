@@ -1,16 +1,16 @@
-# Kam Jī-tián Chu-liāu-khòo
+# 甘為霖《廈門音新字典》
 
-線頂網站：http://taigi.fhl.net/dick/
-[![線頂網站](https://github.com/fhl-net/Kam-Ui-lim_1913_Kam-Ji-tian/raw/master/Bāng-tsām_siú-ia̍h.png)](http://taigi.fhl.net/dick/)
+Chit-ê chhng-khò͘ khǹg ê sī Kam Ûi-lîm (William Campbell) bo̍k-su "Ē-mn̂g Im ê Jī-tián" (kán-chheng Kam Jī-tián) ê sò͘-kù/tsu-liāu, ùi Sìn-bōng-ài hoat-pò͘/sek-chhut ê [chhng-khò͘](https://github.com/fhl-net/Kam-Ui-lim_1913_Kam-Ji-tian) ho̍k-khek--kè-lâi.
 
-## 資料授權
+即个倉庫囥个是甘為霖（William Campbell）牧師《廈門音新字典（廈門音个字典）》（簡稱《甘字典》）个數據/資料，對信望愛發佈/釋出个[倉庫](https://github.com/fhl-net/Kam-Ui-lim_1913_Kam-Ji-tian)復刻過來。
 
-本工作為中央研究院語言學研究所「閩客語典藏」計畫與台語信望愛ê合作成果，資訊技術由台語信望愛站提供， 圖形調號使用的Unicode字型來自拋荒台語文工作室，並蒙允許使用。
+## 主要變動
 
-[![創用 CC 授權條款](https://licensebuttons.net/l/by-nc-sa/3.0/tw/88x31.png)](http://taigi.fhl.net/dick/)
-本字典資料，採用創用 CC 姓名標示-非商業性-相同方式分享 3.0 台灣 授權條款授權。
+- 修訂原底个錄入筆誤
+- 白話字風格遵照原冊標準（基於東苑實驗室桃橘套件）
+- 補充原冊其他內容
+- 構建 Rime 輸入方案
 
-## sql2csv
-```
-time bash sql2csv.sh dic_can.txt 
-```
+## 授權協議
+
+按照 CC BY-NC-SA 4.0 國際授權協議發佈。

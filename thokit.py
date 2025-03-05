@@ -35,7 +35,7 @@ class ThoKit:
     def addToneNumber(self, s:str) -> str:
         return s+'4' if s[-1] in 'ptkhPTKH' else s+'1'
 
-    def tailoUnicode2Ascii(self, s: str, output_style_list=[]):
+    def tailoUnicode2Ascii(self, s: str):
         s = unicodedata.normalize("NFD", s)
         for accent in self.tailoAccentMarks:
             if accent == '': continue
@@ -46,13 +46,13 @@ class ThoKit:
         s = re.sub("([a-zA-Z]+)$", lambda x: self.addToneNumber(x.group(0)), s)
         return s
 
-    def pojUnicode2Ascii(self, s: str, standard='', output_style_list=[]):
-        if standard: assert standard in ['kjt']
-        if standard == 'kjt':
-            s = s.replace('hⁿ', 'ⁿh')
+    def pojUnicode2Ascii(self, s: str, standard=''):
+        if standard: assert standard in ['campbell', 'douglas']
+        if standard == 'campbell':
+            s = re.sub('(h)(ⁿ|ᴺ)', r'\2\1', s, flags=re.IGNORECASE)
             ...
         s = unicodedata.normalize("NFD", s)
-        s = s.replace('ⁿ', 'nn')
+        s = s.replace('ⁿ', 'nn').replace('ᴺ', 'NN')
         if s.upper() == s: s = s.replace('nn', 'NN')
         else: s = s.replace('nn', 'nn')
         # if s.lower() == s: s = s.replace('\u0358', 'o')
@@ -118,14 +118,16 @@ class ThoKit:
         return s
 
     def pojAscii2Unicode(self, s: str, standard:str = None,
+                         support_N = False,
+                         strict_support_tuasia = False,
                          output_style_list=[]):
-        if standard: assert standard in ['kjt']
+        if standard: assert standard in ['campbell']
         s = s.replace('ou', 'oo').replace('Ou', 'Oo').replace('OU', 'OO')
         s = s.replace('hnn', 'nnh').replace('HNN', 'NNH')
-        s = re.sub('([aeiou])N', r'\1nn', s) # 此拼式全大寫 -nn 與 -n 有衝突
-        if standard == 'kjt':
+        if support_N: s = re.sub('([aeiou])N', r'\1nn', s) # 此拼式全大寫 -nn 與 -n 有衝突
+        if standard == 'campbell':
             '''
-            TL vs KJTPOJ
+            TL vs campbellPOJ
             onn => o͘ⁿ
             tsh => chh
             ts([^ie]) => ts
@@ -143,7 +145,7 @@ class ThoKit:
 
         s = re.sub("([a-zA-Z]+\d)", lambda x: self.movePojToneNumber(x.group(0)), s)
 
-        if standard == 'kjt':
+        if standard == 'campbell':
             '''
             ([a-z])o([ae])\d，標 o
             ([a-z])o([ae])(nn)\d，標 o
@@ -172,6 +174,12 @@ class ThoKit:
         s = re.sub("(o)o", "\\1\u0358", s, flags=re.IGNORECASE)
 
         s = re.sub(
+            "NN(h?)([^g\u0301\u0300\u0302\u030C\u0304\u030D\u0306]|$)",
+            r"ᴺ\1\2",
+            s,
+        )
+
+        s = re.sub(
             "nn(h?)([^g\u0301\u0300\u0302\u030C\u0304\u030D\u0306]|$)",
             r"ⁿ\1\2",
             s,
@@ -180,8 +188,8 @@ class ThoKit:
 
         if "nfd" not in output_style_list:
             s = unicodedata.normalize("NFC", s)
-        if standard == 'kjt':
-            s = re.sub('(ⁿ)(h)', r'\2\1', s, flags=re.IGNORECASE)
+        if standard == 'campbell':
+            s = re.sub('(ⁿ|ᴺ)(h)', r'\2\1', s, flags=re.IGNORECASE)
         return s
     
     def pojUnicode2TailoUnicode(self, s: str, poj_standard=''):
