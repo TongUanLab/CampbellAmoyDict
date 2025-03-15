@@ -80,7 +80,6 @@ version: "2025.3.5"
 sort: by_weight
 use_preset_vocabulary: false
 ...
--	-	100%
 '''
 	f.write(poj_yaml_prefix)
 	for tup, freq in poj_ascii_dict.items():

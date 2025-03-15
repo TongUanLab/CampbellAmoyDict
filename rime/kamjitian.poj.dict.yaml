@@ -14,7 +14,6 @@ version: "2025.3.5"
 sort: by_weight
 use_preset_vocabulary: false
 ...
--	-	100%
 A	A1	13
 a	a1	21
 siang-chhe	siang1-chhe1	14

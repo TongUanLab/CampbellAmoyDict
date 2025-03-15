@@ -10,10 +10,60 @@
 # (William Campbell, "A Dictionary of the Amoy Vernacular")
 ---
 name: kamjitian
-version: "2025.3.5"
+version: "2025.3.6"
 sort: by_weight
 use_preset_vocabulary: false
 import_tables:
   - kamjitian.poj
   - kamjitian.hanji
 ...
+a	a
+b	b
+ch	ch
+chh	ch
+e	e
+g	g
+h	h
+i	i
+j	j
+k	k
+kh	kh
+l	l
+m	m
+n	n
+ng	ng
+o	o
+o͘	oo
+p	p
+ph	ph
+s	s
+t	t
+th	th
+ts	ts
+u	u
+ⁿ	nn
+-	-
+# A	A
+# B	B
+# Ch	Ch
+# Chh	Ch
+# E	E
+# G	G
+# H	H
+# I	I
+# J	J
+# K	K
+# Kh	Kh
+# L	L
+# M	M
+# N	N
+# Ng	Ng
+# O	O
+# O͘	Oo
+# P	P
+# Ph	Ph
+# S	S
+# T	T
+# Th	Th
+# Ts	Ts
+# U	U
