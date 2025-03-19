@@ -25,6 +25,7 @@ df3['word'] = df3['word'].apply(lambda x: ThoKit().pojAscii2Unicode(x, standard=
 df3['bunim'] = df3['bunim'].apply(lambda x: ThoKit().pojAscii2Unicode(x, standard='campbell', support_N=True))
 df3['exp'] = df3['exp'].apply(lambda x: ThoKit().pojAscii2Unicode(ThoKit().pojUnicode2Ascii(x), standard='campbell', support_N=True).replace('\r\n', ' ').replace('  ', ' '))
 df3['example'] = df3['example'].apply(lambda x: ThoKit().pojAscii2Unicode(ThoKit().pojUnicode2Ascii(x), standard='campbell', support_N=True).replace('\r\n', ' ').replace('  ', ' '))
+# df3['tailo'] = df3['word'].apply(lambda x: ThoKit().pojAscii2TailoAscii(ThoKit().pojUnicode2Ascii(x.lower(), standard='campbell')))
 df3['tailo'] = df3['word'].apply(lambda x: ThoKit().tailoUnicode2Ascii(ThoKit().pojUnicode2TailoUnicode(x.lower(), poj_standard='campbell')))
 
 df3 = df3[['id', 'word', 'ji', 'bunim', 'exp', 'example', 'tailo', 'page']]
