@@ -5,15 +5,16 @@ import os
 from collections import defaultdict
 from tqdm import tqdm
 
-df = pd.read_csv('dict-new.csv')
+df = pd.read_csv('main.csv')
 
 hanji_ascii_list = []
 poj_ascii_dict = defaultdict()
 
 for i, row in tqdm(df.iterrows()):
-	poj_unicode, hanji, comment = row['poj_unicode'], row['ji'], row['comment']
-	poj_unicode = re.sub('\[[^\]]*\]', '', poj_unicode)
-	hanji = re.sub('\[[^\]]*\]', '', hanji)
+	poj_unicode, hanji, comment = row['poj_unicode'], row['hanji'], row['comment']
+	poj_unicode = re.sub('\[([^\|\]]*)\|=([^\|\]]*)\]', r'\1', poj_unicode)
+	poj_unicode = re.sub('\[([^\|\]]*)\|([^\|\]]*)\]', r'\2', poj_unicode)
+	hanji = re.sub('\[([^\|\]]*)\|=?([^\|\]]*)\]', r'\2', hanji)
 	poj_ascii = ThoKit().pojUnicode2Ascii(poj_unicode, standard='campbell')
 	if (poj_unicode, poj_ascii) not in poj_ascii_dict:
 		poj_ascii_dict[(poj_unicode, poj_ascii)] = 1
@@ -23,9 +24,10 @@ for i, row in tqdm(df.iterrows()):
 		poj_ascii_dict[(poj_unicode.lower(), poj_ascii.lower())] = 1
 	else:
 		poj_ascii_dict[(poj_unicode.lower(), poj_ascii.lower())] += 1
-	if hanji not in ['●', '—'] and (poj_unicode, hanji) not in hanji_ascii_list:
+	if hanji not in ['●', '—'] and (hanji, poj_ascii) not in hanji_ascii_list:
 		hanji_ascii_list.append((hanji, poj_ascii))
-	comment = re.sub('\[[^\]]*\]', '', comment)
+	comment = re.sub('\[([^\|\]]*)\|=([^\|\]]*)\]', r'\1', comment)
+	comment = re.sub('\[([^\|\]]*)\|([^\|\]]*)\]', r'\2', comment)
 	for res_unicode in re.findall('[a-z\-áàâāa̍éèêēe̍íìîīi̍úùûūu̍o͘óòôōo̍ńǹn̂n̄n̍ⁿ]+', comment, flags=re.IGNORECASE):
 		if res_unicode.startswith('-') or res_unicode.endswith('-'):
 			continue
@@ -54,7 +56,7 @@ with open('rime/kamjitian.hanji.dict.yaml', 'w', encoding='utf-8') as f:
 # (William Campbell, "A Dictionary of the Amoy Vernacular")
 ---
 name: kamjitian.hanji
-version: "2025.3.5"
+version: "2025.4.4"
 sort: by_weight
 use_preset_vocabulary: false
 ...
@@ -76,7 +78,7 @@ with open('rime/kamjitian.poj.dict.yaml', 'w', encoding='utf-8') as f:
 # (William Campbell, "A Dictionary of the Amoy Vernacular")
 ---
 name: kamjitian.poj
-version: "2025.3.5"
+version: "2025.4.4"
 sort: by_weight
 use_preset_vocabulary: false
 ...

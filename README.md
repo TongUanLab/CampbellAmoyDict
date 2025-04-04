@@ -17,6 +17,20 @@ Tio̍h ài tiuⁿ-tî: bô kāng pán-pún ê sû-tiâu ia̍h-bé ū cheng-chha.
 - 補充原冊其他內容（TODO）
 - 構建 Rime 輸入方案
 
+## 表
+
+### `main.csv`
+
+- id
+- poj_unicode: 白話字閏符式（遵循原書標準）
+- hanji: 漢字
+- poj_bunim_unicode: 文讀音白話字閏符式（遵循原書標準）
+- comment: 原註釋（全羅）
+- hanlo_comment: 原註釋轉漢羅
+- tailo: 臺羅數字式（首字母亦轉小寫）
+- page_number: 2006 年第 19 版 8 刷 / 1961 年第 8 版之頁碼
+- new_comment: 新校注說明
+
 ## 授權協議
 
 按照 CC BY-NC-SA 4.0 國際授權協議發佈。
