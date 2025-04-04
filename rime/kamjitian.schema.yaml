@@ -4,7 +4,7 @@
 schema:
   schema_id: kamjitian
   name: 廈門音新字典（甘字典）
-  version: "2025.3.5"
+  version: "2025.4.3"
   author:
     - Enatsu <unsioer@outlook.com>
   description: |
@@ -61,14 +61,15 @@ speller:
   initials: QWERTYUIOPASDFGHJKLZXCVBNMzyxwvutsrqponmlkjihgfedcba-
   delimiter: " '"
   algebra:
+    # 大寫改細寫
+    - derive/([A-Z])/\L$1/
     # 通配
     - derive/ch/ts/
     - derive/ts/ch/
     - derive/oo/ou/
     - derive/o([aei])/u$1/
     - derive/e(ng|k)/i$1/
-    # 大寫改細寫，連字符 佮 聲調
-    - derive/([A-Z])/\L$1/
+    # 連字符 佮 聲調
     - derive/\-/y/
     - derive/(\-)*//
     - derive/([1-9])//
