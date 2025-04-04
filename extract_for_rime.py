@@ -4,6 +4,7 @@ import re
 import os
 from collections import defaultdict
 from tqdm import tqdm
+import datetime
 
 df = pd.read_csv('main.csv')
 
@@ -43,8 +44,10 @@ for i, row in tqdm(df.iterrows()):
 
 if not os.path.exists('rime'): os.makedirs('rime')
 
+today = datetime.datetime.today()
+
 with open('rime/kamjitian.hanji.dict.yaml', 'w', encoding='utf-8') as f:
-	hanji_yaml_prefix = '''# Rime dictionary
+	hanji_yaml_prefix = f'''# Rime dictionary
 # encoding: utf-8
 #
 # KamJiTian -- HÀN-JĪ
@@ -56,7 +59,7 @@ with open('rime/kamjitian.hanji.dict.yaml', 'w', encoding='utf-8') as f:
 # (William Campbell, "A Dictionary of the Amoy Vernacular")
 ---
 name: kamjitian.hanji
-version: "2025.4.4"
+version: "{today.year}.{today.month}.{today.day}"
 sort: by_weight
 use_preset_vocabulary: false
 ...
@@ -66,7 +69,7 @@ use_preset_vocabulary: false
 		f.write(tup[0]+'\t'+tup[1]+'\n')
 
 with open('rime/kamjitian.poj.dict.yaml', 'w', encoding='utf-8') as f:
-	poj_yaml_prefix = '''# Rime dictionary
+	poj_yaml_prefix = f'''# Rime dictionary
 # encoding: utf-8
 #
 # KamJiTian -- PE̍H-OĒ-JĪ
@@ -78,7 +81,7 @@ with open('rime/kamjitian.poj.dict.yaml', 'w', encoding='utf-8') as f:
 # (William Campbell, "A Dictionary of the Amoy Vernacular")
 ---
 name: kamjitian.poj
-version: "2025.4.4"
+version: "{today.year}.{today.month}.{today.day}"
 sort: by_weight
 use_preset_vocabulary: false
 ...
