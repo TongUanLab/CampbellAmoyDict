@@ -6,34 +6,40 @@ import re
 import os
 from unicodedata import normalize
 
+def normalizePoj(text: str):
+	text_ascii = ThoKit().pojUnicode2Ascii(text, standard='campbell')
+	try:
+		text_ascii = re.sub(
+				"([a-zA-Z]+[ptkh]n?n?)2", r'\g<1>8', text_ascii
+		)
+	except Exception as e:
+		print(f"{text_ascii}, {e}")
+		exit(-1)
+	return ThoKit().pojAscii2Unicode(text_ascii, standard='campbell')
+
+
 def pojCheck(text: str):
 	if '[' not in text:
-		text =  ThoKit().pojAscii2Unicode(ThoKit().pojUnicode2Ascii(text, standard='campbell'), standard='campbell')
+		text = normalizePoj(text)
 	else:
-		# 原冊筆誤毋參與校驗
 		typo_matches = list(re.finditer('\[[^\|\]]+\|', text))
 		if not typo_matches:
-			text =  ThoKit().pojAscii2Unicode(ThoKit().pojUnicode2Ascii(text, standard='campbell'), standard='campbell')
+			text =  normalizePoj(text)
 		else:
+			# 原冊筆誤毋參與校驗：設字符串 "a[b|c]d"，不處理 b
 			parts = []
 			last_pos = 0
 			for match in typo_matches:
 				if match.start() > last_pos:
 					normal_text = text[last_pos:match.start()]
-					processed_normal = ThoKit().pojAscii2Unicode(
-						ThoKit().pojUnicode2Ascii(normal_text, standard='campbell'), 
-						standard='campbell'
-					)
+					processed_normal = normalizePoj(normal_text)
 					parts.append(processed_normal)
 				parts.append(match.group())
 				last_pos = match.end()
 			
 			if last_pos < len(text):
 				normal_text = text[last_pos:]
-				processed_normal = ThoKit().pojAscii2Unicode(
-					ThoKit().pojUnicode2Ascii(normal_text, standard='campbell'), 
-					standard='campbell'
-				)
+				processed_normal = normalizePoj(normal_text)
 				parts.append(processed_normal)
 			
 			text = ''.join(parts)
