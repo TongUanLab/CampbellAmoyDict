@@ -10,12 +10,20 @@ df = pd.read_csv('main.csv')
 
 hanji_ascii_list = []
 poj_ascii_dict = defaultdict()
+ids_char_list = '⿰⿲⿱⿳⿸⿺⿹⿽⿵⿷⿶⿼⿴⿻⿾⿿㇯'
 
-for i, row in tqdm(df.iterrows()):
+for i, row in tqdm(df.iterrows(), total=len(df)):
 	poj_unicode, hanji, comment = row['poj_unicode'], row['hanji'], row['comment']
 	poj_unicode = re.sub('\[([^\|\]]*)\|=([^\|\]]*)\]', r'\1', poj_unicode)
 	poj_unicode = re.sub('\[([^\|\]]*)\|([^\|\]]*)\]', r'\2', poj_unicode)
 	hanji = re.sub('\[([^\|\]]*)\|=?([^\|\]]*)\]', r'\2', hanji)
+	is_in_unicode = True
+	if len(hanji) >= 3:
+		for char in ids_char_list:
+			if char in hanji:
+				is_in_unicode = False
+				break
+
 	poj_ascii = ThoKit().pojUnicode2Ascii(poj_unicode, standard='campbell')
 	if (poj_unicode, poj_ascii) not in poj_ascii_dict:
 		poj_ascii_dict[(poj_unicode, poj_ascii)] = 1
@@ -25,7 +33,8 @@ for i, row in tqdm(df.iterrows()):
 		poj_ascii_dict[(poj_unicode.lower(), poj_ascii.lower())] = 1
 	else:
 		poj_ascii_dict[(poj_unicode.lower(), poj_ascii.lower())] += 1
-	if hanji not in ['●', '—'] and (hanji, poj_ascii) not in hanji_ascii_list:
+
+	if is_in_unicode and hanji not in ['●', '—'] and (hanji, poj_ascii) not in hanji_ascii_list:
 		hanji_ascii_list.append((hanji, poj_ascii))
 	comment = re.sub('\[([^\|\]]*)\|=([^\|\]]*)\]', r'\1', comment)
 	comment = re.sub('\[([^\|\]]*)\|([^\|\]]*)\]', r'\2', comment)
