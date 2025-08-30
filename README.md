@@ -1,12 +1,12 @@
 # 甘為霖《廈門音新字典》
 
-Chit-ê chhng-khò͘ khǹg ê sī Kam Ûi-lîm (William Campbell) bo̍k-su "Ē-mn̂g Im ê Jī-tián" (kán-chheng Kam Jī-tián) ê sò͘-kù/tsu-liāu, ùi Sìn-bōng-ài hoat-pò͘/sek-chhut ê [chhng-khò͘](https://github.com/fhl-net/Kam-Ui-lim_1913_Kam-Ji-tian) ho̍k-khek kiam cheng-pó͘--kè-lâi.
+Chit-ê chhng-khò͘ khǹg ê sī Kam Ûi-lîm (William Campbell) bo̍k-su "Ē-mn̂g Im ê Jī-tián" (kán-chheng Kam Jī-tián) ê sò͘-kù/tsu-liāu, ùi Sìn-bōng-ài hoat-pò͘/sek-chhut ê [chhng-khò͘](https://github.com/fhl-net/Kam-Ui-lim_1913_Kam-Ji-tian) ho̍k-khek (fork) kiam cheng-pó͘--kè-lâi.
 
-Tio̍h ài tiuⁿ-tî: bô kāng pán-pún ê sû-tiâu ia̍h-bé ū cheng-chha. Pún chhng-khò͘ tsú-iàu chiàu 1961--nî tē 8 pán kah 2006--nî tē 19 pán 8 soat ê ia̍h-bé.
+⚠️ Tio̍h ài tiuⁿ-tî: bô kāng pán-pún ê Hàn-jī sû-tiâu ia̍h-bé ū cheng-chha. Pún chhng-khò͘ tsú-iàu chiàu 1961--nî tē 8 pán kah 2006--nî tē 19 pán 8 soat ê ia̍h-bé.
 
 即个倉庫囥个是甘為霖（William Campbell）牧師《廈門音新字典（廈門音个字典）》（簡稱《甘字典》）个數據/資料，對信望愛發佈/釋出个[倉庫](https://github.com/fhl-net/Kam-Ui-lim_1913_Kam-Ji-tian)復刻兼增補過來。
 
-着愛張持：無仝版本个詞條頁碼有精差。本倉庫主要照 1961 年第 8 版佮 2006 年第 19 版 8 刷个頁碼。
+⚠️ 着愛張持：無仝版本个漢字詞條頁碼有精差。本倉庫主要照 1961 年第 8 版佮 2006 年第 19 版 8 刷个頁碼。
 
 ## 主要變動
 
