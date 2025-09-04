@@ -10,7 +10,7 @@
 # (William Campbell, "A Dictionary of the Amoy Vernacular")
 ---
 name: kamjitian.poj
-version: "2025.8.30"
+version: "2025.9.4"
 sort: by_weight
 use_preset_vocabulary: false
 ...
@@ -88,7 +88,7 @@ gín-ná	gin2-na2	12
 thit-thô	thit4-tho5	132
 mi̍h	mih8	1166
 a-ka	a1-ka1	2
-ēng	eng7	2141
+ēng	eng7	2143
 ku-á	ku1-a2	20
 kut	kut4	223
 lâi	lai5	1403
@@ -262,7 +262,7 @@ khó-sioh	kho2-sioh4	14
 thô͘-soa	thoo5-soa1	30
 thô͘-hún	thoo5-hun2	20
 tîn-ai	tin5-ai1	64
-eng	eng1	55
+eng	eng1	53
 kūn-oá	kun7-oa2	78
 oe-khoeh	oe1-khoeh4	28
 tam-tng	tam1-tng1	106
@@ -6957,7 +6957,7 @@ gû-bé	gu5-be2	36
 tiū-chháu	tiu7-chhau2	4
 chhò-hī	chho3-hi7	14
 chìn-iah	chin3-iah4	4
-pài	pai3	22
+pài	pai3	23
 kūi	kui7	37
 kàu-tōe	kau3-toe7	2
 khiok-lé	khiok4-le2	4
@@ -20181,9 +20181,7 @@ pái-pōe	pai2-poe7	2
 pái-sūi	pai2-sui7	2
 sò͘-pái	soo3-pai2	2
 siàu-pái	siau3-pai2	2
-Pài	Pai3	4
-Pì	Pi3	35
-pì	pi3	35
+Pài	Pai3	5
 peh-phòa	peh4-phoa3	10
 put-oá	put4-oa2	4
 put-lut	put4-lut4	6
@@ -20570,6 +20568,8 @@ chhiū-chí	chhiu7-chi2	2
 sam-á	sam1-a2	2
 phòa-bē-lī	phoa3-be7-li7	8
 pí-liân	pi2-lian5	8
+Pì	Pi3	34
+pì	pi3	34
 pì-koat	pi3-koat4	2
 pì-hng	pi3-hng1	2
 keh-tsa̍h	keh4-tsah8	2

@@ -31,6 +31,7 @@ Chit-ê chhng-khò͘ khǹg ê sī Kam Ûi-lîm (William Campbell) bo̍k-su "Ē-m
 - page_number: 2006 年第 19 版 8 刷 / 1961 年第 8 版之頁碼
 - new_comment: 新校注說明
 
-## 授權協議
+## 授權協議/條款
 
-按照 CC BY-NC-SA 4.0 國際授權協議發佈。
+- 數據/資料：CC BY-NC-SA 4.0 國際
+- 代碼/程式碼：MIT
