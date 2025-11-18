@@ -10,7 +10,7 @@
 # (William Campbell, "A Dictionary of the Amoy Vernacular")
 ---
 name: kamjitian.hanji
-version: "2025.9.9"
+version: "2025.11.18"
 sort: by_weight
 use_preset_vocabulary: false
 ...
@@ -346,7 +346,7 @@ use_preset_vocabulary: false
 夢	bang7
 夣	bang7
 梦	bang7
-網	bang5
+網	bang7
 白	bat4
 曾	bat4
 識	bat4
@@ -2058,7 +2058,7 @@ use_preset_vocabulary: false
 種	Chiong3
 𤕭	Chiong3
 將	Chiong3
-中	chiong1
+中	chiong3
 爿	Chiong5
 從	Chiong5
 傱	Chiong5
@@ -11968,7 +11968,7 @@ use_preset_vocabulary: false
 𢉀	lau7
 漏	lau7
 荳	lau7
-惱	lannn2
+惱	launn2
 落	lauh8
 絡	le1
 礼	Le2
@@ -15078,7 +15078,7 @@ use_preset_vocabulary: false
 邊	pinn1
 拼	pinn1
 扁	pinn2
-柄	pin3
+柄	pinn3
 变	pinn3
 變	pinn3
 平	pinn5
@@ -15422,7 +15422,7 @@ use_preset_vocabulary: false
 斧	poo2
 脯	poo2
 黼	poo2
-布	Po3
+布	Poo3
 佈	Poo3
 怖	Poo3
 抪	Poo3
@@ -15840,7 +15840,7 @@ use_preset_vocabulary: false
 鉋	Phau7
 疱	Phau7
 博	phauh4
-𥄹	Phauh3
+𥄹	Phauh8
 雹	Phauh8
 䥤	Phauh8
 𤿈	Phauh8
@@ -16008,7 +16008,7 @@ use_preset_vocabulary: false
 屁	Phi3
 嬖	Phi3
 㑭	Phi3
-俾	Phi1
+俾	Phi3
 辟	Phi3
 皮	Phi5
 蚽	Phi5
@@ -17145,7 +17145,7 @@ use_preset_vocabulary: false
 倦	sian7
 双	siang1
 雙	siang1
-同	siang2
+同	siang5
 共	siang7
 上	siang7
 𠴯	Siap4
@@ -20521,8 +20521,8 @@ use_preset_vocabulary: false
 談	than5
 通	thang1
 牕	thang1
-窻	thagn1
-窓	thagn1
+窻	thang1
+窓	thang1
 窗	thang1
 桶	thang2
 䚎	Thang3
@@ -20786,7 +20786,7 @@ use_preset_vocabulary: false
 撐	thinn3
 撑	thinn3
 瞪	thinn5
-𦃘	thin7
+𦃘	thinn7
 紩	thinn7
 廳	thiann1
 聽	thiann1
@@ -20823,7 +20823,7 @@ use_preset_vocabulary: false
 𨼮	Thiam7
 沉	Thiam7
 沈	Thiam7
-芺	Thin1
+芺	Thian1
 天	Thian1
 靝	Thian1
 吞	Thian1
@@ -21736,7 +21736,7 @@ use_preset_vocabulary: false
 遭	tsoa1
 帋	tsoa2
 紙	tsoa2
-姐	tso2
+姐	tsoa2
 誰	tsoa5
 蛇	tsoa5
 虵	tsoa5
