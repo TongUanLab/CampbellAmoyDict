@@ -65,7 +65,7 @@ df['comment'] = df['comment'].apply(lambda x: pojCheck(x))
 
 df['hanlo_comment'] = df['hanlo_comment'].apply(lambda x: pojCheck(x))
 
-df['tailo'] = df['poj_unicode'].apply(lambda x: ThoKit().tailoUnicode2Ascii(ThoKit().pojUnicode2TailoUnicode(x, poj_standard='campbell')))
+df['tailo'] = df['poj_unicode'].apply(lambda x: re.sub('OO(\d)', 'Oo\\1', ThoKit().tailoUnicode2Ascii(ThoKit().pojUnicode2TailoUnicode(x, poj_standard='campbell'))))
 
 df.to_csv('main.csv', index=False)
 
