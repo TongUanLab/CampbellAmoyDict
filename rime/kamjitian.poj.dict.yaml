@@ -10,7 +10,7 @@
 # (William Campbell, "A Dictionary of the Amoy Vernacular")
 ---
 name: kamjitian.poj
-version: "2025.11.29"
+version: "2026.9.1"
 sort: by_weight
 use_preset_vocabulary: false
 ...
@@ -3398,7 +3398,7 @@ lôe-hn̂g	loe5-hng5	12
 tiah-mi̍h	tiah4-mih8	6
 chháu-ba̍k	chhau2-bak8	110
 kià	kia3	18
-thok-tiōng	thok4-tiong7	52
+thok-tiōng	thok4-tiong7	54
 kiau-so	kiau1-so1	16
 sái-sō	sai2-so7	18
 pái-lōng	pai2-long7	16
@@ -12377,7 +12377,6 @@ Sūn-thian-hú	Sun7-thian1-hu2	2
 sūn-thian-hú	sun7-thian1-hu2	2
 Iong	Iong1	34
 iong	iong1	36
-thok-uiōng	thok4-uiong7	2
 sin-siùⁿ	sin1-siunn3	2
 iang-chhiáⁿ	iang1-chhiann2	2
 tsai-iang	tsai1-iang1	2
