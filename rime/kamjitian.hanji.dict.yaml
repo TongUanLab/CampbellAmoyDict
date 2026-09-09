@@ -10,7 +10,7 @@
 # (William Campbell, "A Dictionary of the Amoy Vernacular")
 ---
 name: kamjitian.hanji
-version: "2026.9.1"
+version: "2026.9.10"
 sort: by_weight
 use_preset_vocabulary: false
 ...
