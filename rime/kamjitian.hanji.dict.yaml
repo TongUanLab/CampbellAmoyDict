@@ -10,7 +10,7 @@
 # (William Campbell, "A Dictionary of the Amoy Vernacular")
 ---
 name: kamjitian.hanji
-version: "2026.9.10"
+version: "2026.9.14"
 sort: by_weight
 use_preset_vocabulary: false
 ...
@@ -5160,7 +5160,7 @@ use_preset_vocabulary: false
 嫐	Hiau5
 譃	hiauh4
 唲	hih4
-欷	hinnh4
+欷	hinnh8
 忺	Him1
 欣	Him1
 廞	Him1
@@ -7839,7 +7839,7 @@ use_preset_vocabulary: false
 齦	jin5
 認	Jin7
 橈	jio5
-尿	jio5
+尿	jio7
 弱	jioh8
 傗	jioh8
 辱	Jiok8
