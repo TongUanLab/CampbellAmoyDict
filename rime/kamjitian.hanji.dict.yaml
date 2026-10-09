@@ -10,7 +10,7 @@
 # (William Campbell, "A Dictionary of the Amoy Vernacular")
 ---
 name: kamjitian.hanji
-version: "2026.9.14"
+version: "2026.10.9"
 sort: by_weight
 use_preset_vocabulary: false
 ...
@@ -10723,6 +10723,7 @@ use_preset_vocabulary: false
 䈖	khe1
 詼	khe1
 啟	Khe2
+啓	Khe2
 諬	Khe2
 啔	Khe2
 綮	Khe2
@@ -17744,6 +17745,7 @@ use_preset_vocabulary: false
 莎	So1
 傞	So1
 䓾	So1
+䗏	So1
 𦞣	So1
 餿	So1
 瘙	So1
